@@ -767,7 +767,9 @@ async def get_user_from_event(event):
         user_obj = await event.client.get_entity(previous_message.from_id)
     else:
         user = event.pattern_match.group(1)
-
+        user = user.split(" ")
+        user = user[0]
+        
         if user.isnumeric():
             user = int(user)
 
